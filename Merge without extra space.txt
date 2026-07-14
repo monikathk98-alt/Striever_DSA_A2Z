@@ -1,0 +1,33 @@
+class Solution {
+  public:
+    void mergeArrays(vector<int>& a, vector<int>& b) {
+        // code here
+        int i=0,j=0;
+        int n=a.size(),m=b.size();
+        vector<int>temp;
+        while(i<n&&j<m){
+            if(a[i]<b[j]){
+                temp.push_back(a[i]);
+                i++;
+            }else{
+                temp.push_back(b[j]);
+                j++;
+            }
+        }
+        while(i<n){
+             temp.push_back(a[i]);
+                i++;
+        }
+        while(j<m){
+             temp.push_back(b[j]);
+                j++;
+        }
+        int k=0;
+        for(int i=0;i<n;i++){
+            a[i]=temp[k];k++;
+        }
+        for(int j=0;j<m;j++){
+            b[j]=temp[k];k++;
+        }
+    }
+};
